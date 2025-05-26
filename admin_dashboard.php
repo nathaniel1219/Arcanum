@@ -2,7 +2,6 @@
 session_start();
 require_once 'functions.php';
 
-// Only admin access
 if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");
     exit();
@@ -11,7 +10,6 @@ if (!isset($_SESSION['user_id'])) {
 $conn = connect_db();
 $customer_id = $_SESSION['user_id'];
 
-// Check if logged in user is admin
 $stmt = $conn->prepare("SELECT is_admin FROM customer WHERE customer_id = ?");
 $stmt->bind_param("i", $customer_id);
 $stmt->execute();
@@ -27,12 +25,10 @@ $userdata = null;
 $orders = [];
 $message = '';
 
-// Get list of all users for sidebar (exclude admin users for clarity)
 $user_list_stmt = $conn->prepare("SELECT username FROM customer WHERE is_admin = 0 ORDER BY username ASC");
 $user_list_stmt->execute();
 $user_list = $user_list_stmt->get_result()->fetch_all(MYSQLI_ASSOC);
 
-// Handle user search by POST or username clicked on sidebar
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['search_username'])) {
     $search_username = trim($_POST['search_username']);
 } elseif (isset($_GET['username'])) {
@@ -55,7 +51,6 @@ if ($search_username !== '') {
     }
 }
 
-// Handle order status update
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_order_status'])) {
     $order_id = intval($_POST['order_id']);
     $new_status = $_POST['order_status'];
@@ -66,7 +61,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_order_status']
         $stmt->bind_param("si", $new_status, $order_id);
         if ($stmt->execute()) {
             $message = "Order status updated successfully.";
-            // Reload orders after update
             if ($userdata) {
                 $stmt = $conn->prepare("SELECT order_id, total, order_date, order_status FROM `order` WHERE customer_id = ? ORDER BY order_date DESC");
                 $stmt->bind_param("i", $userdata['customer_id']);
@@ -99,7 +93,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_order_status']
   <?php endif; ?>
 
   <div class="flex gap-8 max-w-7xl flex-1">
-    <!-- Sidebar user list -->
     <aside class="w-64 bg-white p-4 rounded shadow h-[600px] overflow-y-auto">
       <h2 class="font-semibold text-lg mb-4 border-b pb-2">Users</h2>
       <ul>
@@ -116,9 +109,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_order_status']
       </ul>
     </aside>
 
-    <!-- Main content -->
     <main class="flex-1 bg-white p-6 rounded shadow max-h-[600px] overflow-y-auto">
-      <!-- Search form -->
       <form method="POST" class="mb-8 flex items-center gap-2 max-w-md">
         <label class="block font-semibold" for="search_username">Search User by Username:</label>
         <input

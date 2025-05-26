@@ -41,7 +41,6 @@ $cartItems = getCartItems($conn, $user_id);
 </head>
 <body class="min-h-screen font-sans text-gray-800 bg-gray-50">
 
-  <!-- Header -->
   <header class="bg-white py-4 px-6 shadow-sm">
     <div class="flex justify-between items-center max-w-7xl mx-auto">
       <div class="w-1/3"></div>
@@ -55,14 +54,12 @@ $cartItems = getCartItems($conn, $user_id);
     </div>
   </header>
 
-  <!-- Back to Home Button -->
   <div class="max-w-7xl mx-auto px-6 mt-4">
     <a href="index.php" class="inline-block text-sm text-[#F4B14E] hover:underline">
       ← Back to Home
     </a>
   </div>
 
-  <!-- Main Cart Layout -->
   <main class="max-w-7xl mx-auto p-6 grid grid-cols-1 lg:grid-cols-3 gap-8">
     <form method="POST" class="lg:col-span-2">
       <h2 class="text-2xl font-bold mb-6">Your Shopping Cart</h2>
@@ -101,7 +98,6 @@ $cartItems = getCartItems($conn, $user_id);
       <?php endif; ?>
     </form>
 
-    <!-- Order Summary -->
     <?php if (!empty($cartItems)): ?>
       <aside class="bg-white p-6 rounded shadow h-fit">
         <h3 class="text-xl font-bold mb-4">Order Summary</h3>
@@ -128,12 +124,10 @@ $cartItems = getCartItems($conn, $user_id);
     <?php endif; ?>
   </main>
 
-  <!-- Footer -->
   <footer class="text-center py-6 text-sm text-gray-500">
     &copy; <?= date("Y") ?> Arcanum. All rights reserved. Nathaniel
   </footer>
 
-  <!-- Checkbox Script -->
   <script>
     function toggleSelectAll(checked) {
       document.querySelectorAll('input[name="delete[]"]').forEach(cb => cb.checked = checked);

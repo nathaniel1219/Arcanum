@@ -59,7 +59,6 @@ function validate_login($usernameOrEmail, $password) {
         $result = $stmt->get_result();
 
         if ($user = $result->fetch_assoc()) {
-            // Compare plain text passwords directly (not secure but works for now)
             if ($password === $user['password']) {
                 $stmt->close();
                 $conn->close();
@@ -82,7 +81,6 @@ function getUserById($conn, $customer_id) {
 
 function updateUser($conn, $customer_id, $username, $email, $phone, $password = null) {
     if ($password !== null) {
-        // No hashing here — just update password as-is
         $stmt = $conn->prepare("UPDATE customer SET username = ?, email = ?, phone = ?, password = ? WHERE customer_id = ?");
         $stmt->bind_param("ssssi", $username, $email, $phone, $password, $customer_id);
     } else {
@@ -121,12 +119,7 @@ function getOrderItemsByOrderId($conn, $order_id) {
 
 
 
-
-
-
-/**
- * Returns all products from the database
- */
+/*Returns all products from the database*/
 function getAllProducts($conn) {
     $products = [];
 
@@ -138,11 +131,10 @@ function getAllProducts($conn) {
             $products[] = $row;
         }
     }
-
     return $products;
 }
 
-
+/* Returns products based on category */
 function getProductsByCategory($conn, $category) {
     $products = [];
     $sql = "SELECT * FROM products WHERE sub_category = ?";
@@ -242,7 +234,7 @@ function updateCartQuantities($conn, $cart_id, $updates) {
 }
 
 
-//checkout and order logic
+/* checkout and order logic */
 function createOrder($conn, $customer_id, $total) {
     $stmt = $conn->prepare("INSERT INTO `order` (customer_id, total, order_date, order_status) VALUES (?, ?, NOW(), 'pending')");
     $stmt->bind_param("id", $customer_id, $total);

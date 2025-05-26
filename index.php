@@ -22,7 +22,6 @@ $products = getAllProducts($conn);
 </head>
 <body class="min-h-screen font-sans text-gray-800">
 
-  <!-- Header -->
   <header class="bg-white py-4 px-6">
     <div class="flex justify-between items-center max-w-7xl mx-auto">
       <div class="w-1/3"></div>
@@ -37,7 +36,6 @@ $products = getAllProducts($conn);
       </div>
     </div>
 
-    <!-- Navbar -->
     <nav class="bg-white shadow-md mt-4">
       <div class="max-w-7xl mx-auto px-4 py-4">
         <div class="flex justify-center space-x-12">
@@ -63,14 +61,12 @@ $products = getAllProducts($conn);
     </nav>
   </header>
 
-  <!-- Main Content -->
   <main class="p-8 max-w-7xl mx-auto">
     <div class="text-center mb-12">
       <h2 class="text-4xl font-bold mb-2">Discover Rare Collectibles</h2>
       <p class="text-gray-700 text-lg">Explore, buy, and bid on exclusive items at our store</p>
     </div>
 
-    <!-- Product Grid -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
       <?php foreach ($products as $index => $product): ?>
         <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
@@ -92,7 +88,6 @@ $products = getAllProducts($conn);
           </div>
         </div>
 
-        <!-- Modal -->
         <div id="modal-<?= $index ?>" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
           <div class="bg-white rounded-lg p-6 max-w-md w-full relative">
             <button onclick="closeModal(<?= $index ?>)" class="absolute top-2 right-2 text-gray-500 hover:text-gray-800 text-2xl">&times;</button>
@@ -110,8 +105,9 @@ $products = getAllProducts($conn);
               <!-- AJAX Add to Cart Button -->
               <button 
                 onclick="addToCart(<?= $product['product_id'] ?>)" 
-                class="w-full bg-[#F4B14E] text-white px-4 py-2 rounded-md hover:bg-yellow-600 transition"
-              >Add to Cart</button>
+                class="w-full bg-[#F4B14E] text-white px-4 py-2 rounded-md hover:bg-yellow-600 transition">
+                Add to Cart
+              </button>
             </div>
           </div>
         </div>
@@ -119,15 +115,12 @@ $products = getAllProducts($conn);
     </div>
   </main>
 
-  <!-- Toast Notification -->
   <div id="toast" class="fixed bottom-6 right-6 bg-green-500 text-white py-3 px-4 rounded shadow-lg hidden z-50 transition-opacity"></div>
 
-  <!-- Footer -->
   <footer class="text-center py-6 text-sm text-gray-500 mt-12">
     &copy; <?= date("Y") ?> Arcanum. All rights reserved. Nathaniel.
   </footer>
 
-  <!-- Scripts -->
   <script>
     function openModal(index) {
       document.getElementById(`modal-${index}`).classList.remove('hidden');

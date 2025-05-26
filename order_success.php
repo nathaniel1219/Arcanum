@@ -7,7 +7,7 @@ if (!isset($_SESSION['order_success'])) {
 }
 
 $order = $_SESSION['order_success'];
-unset($_SESSION['order_success']); // clear after displaying
+unset($_SESSION['order_success']); 
 ?>
 
 <!DOCTYPE html>
@@ -18,7 +18,6 @@ unset($_SESSION['order_success']); // clear after displaying
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-100 text-gray-800">
-  <!-- Header with logo -->
   <header class="bg-white py-4 px-6 shadow-md">
     <div class="max-w-7xl mx-auto flex justify-center items-center">
       <a href="index.php">

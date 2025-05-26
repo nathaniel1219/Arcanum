@@ -31,7 +31,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     clearCart($conn, $user_id);
 
-    // Store shipping info in session to show on success page
     $_SESSION['order_success'] = [
         'order_id' => $order_id,
         'name' => $name,

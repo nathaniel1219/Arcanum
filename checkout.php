@@ -29,7 +29,6 @@ foreach ($cartItems as $item) {
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-50 text-gray-800">
-  <!-- Header with logo -->
   <header class="bg-white py-4 px-6 shadow-md">
     <div class="max-w-7xl mx-auto flex justify-center items-center">
       <a href="index.php">
@@ -42,7 +41,6 @@ foreach ($cartItems as $item) {
     <h1 class="text-3xl font-bold mb-6">Checkout</h1>
 
     <form action="place_order.php" method="POST" class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      <!-- Shipping Information -->
       <div>
         <h2 class="text-xl font-semibold mb-4">Shipping Information</h2>
         <input type="text" name="name" placeholder="Full Name" required class="w-full border rounded px-4 py-2 mb-4">
@@ -51,7 +49,6 @@ foreach ($cartItems as $item) {
         <input type="text" name="phone" placeholder="Phone Number" required class="w-full border rounded px-4 py-2 mb-4">
       </div>
 
-      <!-- Payment and Summary -->
       <div>
         <h2 class="text-xl font-semibold mb-4">Payment & Summary</h2>
         <select name="payment_method" class="w-full border rounded px-4 py-2 mb-4" required>
