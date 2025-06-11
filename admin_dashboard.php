@@ -82,8 +82,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_order_status']
   <meta charset="UTF-8" />
   <title>Admin Dashboard - Arcanum</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap" rel="stylesheet">
 </head>
-<body class="bg-gray-100 min-h-screen p-6 flex flex-col">
+<body class="bg-gray-100 min-h-screen p-6 flex flex-col" style="font-family: 'Tilt Neon', sans-serif;">
   <h1 class="text-3xl font-bold mb-6">Admin Dashboard</h1>
 
   <a href="account.php" class="text-[#F4B14E] hover:underline mb-6 inline-block">← Back to Account</a>

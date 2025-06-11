@@ -16,8 +16,9 @@ unset($_SESSION['order_success']);
   <meta charset="UTF-8">
   <title>Order Successful</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap" rel="stylesheet">
 </head>
-<body class="bg-gray-100 text-gray-800">
+<body class="bg-gray-100 text-gray-800" style="font-family: 'Tilt Neon', sans-serif;">
   <header class="bg-white py-4 px-6 shadow-md">
     <div class="max-w-7xl mx-auto flex justify-center items-center">
       <a href="index.php">

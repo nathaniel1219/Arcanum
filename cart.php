@@ -38,8 +38,9 @@ $cartItems = getCartItems($conn, $user_id);
       document.querySelectorAll('input[name="delete[]"]').forEach(cb => cb.checked = checked);
     }
   </script>
+  <link href="https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap" rel="stylesheet">
 </head>
-<body class="min-h-screen font-sans text-gray-800 bg-gray-50">
+<body class="min-h-screen font-sans text-gray-800 bg-gray-50" style="font-family: 'Tilt Neon', sans-serif;">
 
   <header class="bg-white py-4 px-6 shadow-sm">
     <div class="flex justify-between items-center max-w-7xl mx-auto">

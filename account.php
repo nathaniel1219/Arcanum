@@ -40,8 +40,9 @@ $user = getUserById($conn, $customer_id);
   <meta charset="UTF-8">
   <title>My Account - Arcanum</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap" rel="stylesheet">
 </head>
-<body class="bg-gray-100 text-gray-800 min-h-screen">
+<body class="bg-gray-100 text-gray-800 min-h-screen" style="font-family: 'Tilt Neon', sans-serif;">
 
   <!-- Header with Logo -->
   <header class="bg-white py-4 px-6 shadow-sm">

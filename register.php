@@ -27,8 +27,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Arcanum Register</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap" rel="stylesheet">
 </head>
-<body class="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#F4B14E] to-white font-sans">
+<body class="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#F4B14E] to-white font-sans" style="font-family: 'Tilt Neon', sans-serif;">
 
   <div class="bg-white p-10 rounded-xl shadow-lg w-full max-w-md">
     <form method="POST" action="" class="space-y-6">

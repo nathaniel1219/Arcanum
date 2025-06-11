@@ -19,8 +19,10 @@ $products = getAllProducts($conn);
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Arcanum - Home</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap" rel="stylesheet">
 </head>
-<body class="min-h-screen font-sans text-gray-800">
+
+<body class="min-h-screen font-sans text-gray-800" style="font-family: 'Tilt Neon', sans-serif;">
 
   <header class="bg-white py-4 px-6">
     <div class="flex justify-between items-center max-w-7xl mx-auto">
